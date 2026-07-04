@@ -1,0 +1,188 @@
+/* Venturing design system — derived from the supplied mockup:
+   dark charcoal frame, cream/white rounded "sheet" cards, serif display
+   headings, micro uppercase tracked kickers, lavender pill CTAs. */
+
+:root {
+  --ink: #17150f;
+  --ink-soft: #55524a;
+  --ink-faint: #8b877d;
+  --frame: #0e0d0b;
+  --cream: #faf8f3;
+  --paper: #ffffff;
+  --hairline: #e8e4dc;
+  --lavender: #ddd1f6;
+  --lavender-deep: #c9b8ef;
+  --radius-card: 28px;
+  --serif: 'Cormorant Garamond', 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--frame);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; }
+
+/* ---- shell: mockup-style rounded sheet on dark frame ---- */
+.shell {
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 20px 12px 48px;
+}
+.sheet {
+  background: var(--cream);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  min-height: calc(100vh - 68px);
+}
+.sheet-inner { padding: 30px 26px 40px; }
+
+/* ---- top bar ---- */
+.topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 22px 26px 6px;
+}
+.wordmark {
+  font-family: var(--serif);
+  font-size: 24px; font-weight: 500; letter-spacing: 0.01em;
+}
+.menu-lines { display: inline-flex; flex-direction: column; gap: 5px; background: none; border: 0; padding: 6px 2px; }
+.menu-lines span { display: block; width: 22px; height: 1.6px; background: var(--ink); }
+
+/* ---- type ---- */
+.kicker {
+  font-size: 10.5px; font-weight: 600; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--ink-faint);
+  text-align: center; margin-bottom: 14px;
+}
+.display {
+  font-family: var(--serif);
+  font-weight: 500; font-size: 30px; line-height: 1.18;
+  text-align: center; letter-spacing: 0.005em;
+}
+.display .accent { color: var(--lavender-deep); font-style: italic; }
+.lede { text-align: center; color: var(--ink-soft); font-size: 13.5px; margin-top: 12px; }
+.section-title {
+  font-family: var(--serif); font-size: 24px; font-weight: 500;
+  text-align: center; line-height: 1.2;
+}
+.meta { font-size: 12px; color: var(--ink-faint); }
+
+/* ---- lavender pill CTA (mockup: "Zestawy kosmetyków →") ---- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  background: var(--lavender); color: var(--ink);
+  border: 0; border-radius: 999px;
+  padding: 13px 26px; font-size: 14px; font-weight: 500;
+  transition: background 0.15s ease;
+}
+.btn:hover { background: var(--lavender-deep); }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn .arrow { font-size: 15px; transform: translateY(-0.5px); }
+.btn-block { width: 100%; }
+.btn-ghost {
+  background: transparent; border: 1px solid var(--hairline); color: var(--ink-soft);
+}
+.btn-ghost:hover { background: var(--paper); }
+.btn-row { display: flex; gap: 10px; margin-top: 18px; }
+
+/* small uppercase link-button (mockup: "LETNIA KOLEKCJA →") */
+.link-caps {
+  font-size: 10.5px; font-weight: 600; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--ink-soft);
+  background: none; border: 0; display: inline-flex; gap: 8px; align-items: center;
+}
+
+/* ---- cards ---- */
+.card {
+  background: var(--paper); border-radius: 20px;
+  padding: 20px; margin-top: 16px;
+  border: 1px solid var(--hairline);
+}
+.card-title { font-family: var(--serif); font-size: 19px; font-weight: 500; }
+
+/* ---- tag chips (fixed vocabularies) ---- */
+.tag-grid { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 18px; }
+.tag {
+  border: 1px solid var(--hairline); background: var(--paper);
+  border-radius: 999px; padding: 8px 16px; font-size: 13px; color: var(--ink-soft);
+  text-transform: capitalize; transition: all 0.12s ease;
+}
+.tag.on { background: var(--ink); border-color: var(--ink); color: var(--cream); }
+.tag.static { cursor: default; }
+.tag.lav { background: var(--lavender); border-color: var(--lavender); color: var(--ink); }
+
+/* ---- forms ---- */
+.field { margin-top: 18px; }
+.field label {
+  display: block; font-size: 10.5px; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint);
+  margin-bottom: 8px;
+}
+.field input, .field textarea, .field select {
+  width: 100%; border: 1px solid var(--hairline); border-radius: 14px;
+  background: var(--paper); padding: 12px 14px; font: inherit; color: var(--ink);
+}
+.field textarea { min-height: 96px; resize: vertical; }
+.field input:focus, .field textarea:focus, .field select:focus {
+  outline: none; border-color: var(--lavender-deep);
+}
+.hint { font-size: 12px; color: var(--ink-faint); margin-top: 6px; }
+.error { font-size: 13px; color: #a4443c; margin-top: 10px; text-align: center; }
+
+/* ---- stepper dots (mockup pagination dots) ---- */
+.dots { display: flex; gap: 8px; justify-content: center; margin: 26px 0 0; }
+.dots i { width: 5px; height: 5px; border-radius: 50%; background: #d4cfc6; }
+.dots i.on { background: var(--ink); }
+
+/* ---- ledger timeline ---- */
+.ledger { margin-top: 10px; }
+.ledger-entry {
+  display: flex; gap: 14px; padding: 16px 2px;
+  border-bottom: 1px solid var(--hairline);
+}
+.ledger-entry:last-child { border-bottom: 0; }
+.ledger-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--ink); margin-top: 7px; flex: none;
+}
+.ledger-dot.advisory { background: var(--lavender-deep); }
+.ledger-type { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); }
+.ledger-desc { font-size: 14px; margin-top: 2px; }
+
+/* ---- hero photo block (mockup panel 1) ---- */
+.hero {
+  position: relative; border-radius: var(--radius-card);
+  background: linear-gradient(160deg, #e9ddd0 0%, #d9c7b8 55%, #cbb5a4 100%);
+  min-height: 380px; display: flex; flex-direction: column;
+  justify-content: center; align-items: center; padding: 40px 28px;
+}
+.hero .display { color: var(--cream); text-shadow: 0 1px 20px rgba(60,40,20,0.25); }
+.hero .link-caps { position: absolute; bottom: 26px; color: var(--cream); }
+
+/* ---- divider band (mockup panel 3 bottom section) ---- */
+.band { background: var(--paper); border-radius: var(--radius-card); padding: 34px 28px; margin-top: 14px; }
+
+.stack { display: flex; flex-direction: column; gap: 4px; }
+.row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.center { text-align: center; }
+.mt-1 { margin-top: 8px; } .mt-2 { margin-top: 16px; } .mt-3 { margin-top: 26px; } .mt-4 { margin-top: 36px; }
+
+.score {
+  font-family: var(--serif); font-size: 30px; font-weight: 500; line-height: 1;
+}
+.phase-pill {
+  font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase;
+  border-radius: 999px; padding: 5px 12px; background: var(--cream);
+  border: 1px solid var(--hairline); color: var(--ink-soft);
+}
+.phase-pill.dormant { background: #f3e9e2; color: #8c6f5a; }
